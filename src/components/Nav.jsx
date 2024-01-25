@@ -1,7 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Link } from "react-router-dom";
 
-const Nav = () => {
+const Nav = (props) => {
+  const handleLogout = () => {
+    props.setIsLoggedIn(false);
+  }
 
   return (
     <nav>
@@ -17,6 +20,9 @@ const Nav = () => {
         <Link to={'/new'}>
           <li>New Post</li>
         </Link>
+        {props.isLoggedIn &&
+          <button type="button" onClick={handleLogout}>Log Out</button>
+        }
       </ul>
     </nav>
   )
