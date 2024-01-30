@@ -10,10 +10,14 @@ const Nav = (props) => {
     <nav>
       <div className="nav-logo">
         <Link to={'/'}>
-          <p>Home</p>
+          <p>Daze's</p>
+          <p>Blog</p>
         </Link>
       </div>
       <ul className="nav-links">
+        <Link to={'/'}>
+          <li>Home</li>
+        </Link>
         <Link to={'/posts'}>
           <li>Posts</li>
         </Link>
