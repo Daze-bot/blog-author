@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import moment from "moment";
 import CommentCard from "./CommentCard";
 
@@ -31,7 +31,7 @@ const PostPage = () => {
       <h1>{activePost.title}</h1>
       <p className="post-date">Created: {moment(activePost.dateAdded).format('MMM D, YYYY')}</p>
       <div className="post-admin">
-        <button>Edit Post</button>
+        <Link to={`/posts/${postID}/edit`}><button>Edit Post</button></Link>
         <button id="danger">Delete Post</button>
       </div>
       <p>{activePost.text}</p>

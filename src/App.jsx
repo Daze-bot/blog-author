@@ -8,34 +8,11 @@ import NewPost from './components/NewPost';
 import PostPage from './components/PostPage';
 import CommentPage from './components/CommentPage';
 import ErrorPage from './components/ErrorPage';
+import EditPost from './components/EditPost';
 import { useState } from 'react';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  /* useEffect(() => {
-    fetch('http://localhost:3000/users')
-      .then((res) => {
-        if (res.status === 401) {
-          throw new Error(
-            "Token no longer valid, user logged out"
-          );
-        }
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        if (isLoggedIn === false) {
-          setIsLoggedIn(true);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        if (isLoggedIn === true) {
-          setIsLoggedIn(false);
-        }
-      })
-  }); */
 
   const loggedOutLoader = () => {
     if (isLoggedIn === false) {
@@ -88,12 +65,23 @@ const App = () => {
         },
         {
           path: "/new",
-          element: <NewPost />,
+          element: <NewPost 
+            isLoggedIn={isLoggedIn}
+            setIsLoggedIn={setIsLoggedIn}
+          />,
           loader: loggedOutLoader,
         },
         {
           path: "/posts/:postID",
           element: <PostPage />,
+          loader: loggedOutLoader,
+        },
+        {
+          path: "/posts/:postID/edit",
+          element: <EditPost 
+            isLoggedIn={isLoggedIn}
+            setIsLoggedIn={setIsLoggedIn}
+          />,
           loader: loggedOutLoader,
         },
         {

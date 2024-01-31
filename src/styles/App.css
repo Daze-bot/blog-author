@@ -144,6 +144,7 @@ form button:active,
 .home,
 .posts,
 .post-page,
+.new-post,
 .login {
   padding: 127px 64px 32px;
   background-color: var(--content-bg);
@@ -214,7 +215,7 @@ form button:active,
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   border-radius: 12px;
   padding: 30px;
   color: white;
@@ -286,6 +287,23 @@ form button:active,
   font-size: .9rem;
 }
 
+.new-post {
+  border: 1px solid var(--amazon-blue);
+  border-radius: 8px;
+}
+
+.new-post h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+
+.new-post button {
+  align-self: center;
+  margin-top: 20px;
+  width: 180px;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -301,7 +319,7 @@ form textarea {
 }
 
 form input {
-  width: 300px;
+  width: 500px;
 }
 
 form textarea {
@@ -310,6 +328,7 @@ form textarea {
 
 form label {
   margin-bottom: 8px;
+  font-weight: 700;
 }
 
 .route-error {
