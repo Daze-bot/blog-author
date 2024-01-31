@@ -21,6 +21,7 @@
 .app {
   min-height: 100vh;
   position: relative;
+  background-color: var(--content-bg);
 }
 
 nav {
@@ -84,7 +85,8 @@ nav button {
   right: 10px;
   top: 10px;
   display: flex;
-  gap: 8px;
+  gap: 12px;
+  z-index: 20;
 }
 
 .admin-buttons button,
@@ -124,7 +126,8 @@ form button {
 nav button:hover,
 form button:hover,
 .post-admin button:hover,
-.admin-buttons button:hover {
+.admin-buttons button:hover,
+.home-buttons button:hover {
   cursor: pointer;
   filter: brightness(120%);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
@@ -133,7 +136,8 @@ form button:hover,
 nav button:active,
 form button:active,
 .post-admin button:active,
-.admin-buttons button:active {
+.admin-buttons button:active,
+.home-buttons button:active {
   box-shadow: none;
 }
 
@@ -145,6 +149,38 @@ form button:active,
   background-color: var(--content-bg);
   color: black;
   min-height: 100vh;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10vh;
+  text-align: center;
+}
+
+.home h1 {
+  font-size: 3rem;
+}
+
+.home p {
+  font-size: 1.4rem;
+}
+
+.home-buttons {
+  display: flex;
+  gap: 10vw;
+}
+
+.home-buttons button {
+  border: none;
+  background-color: var(--daze-blue);
+  width: 250px;
+  color: white;
+  padding: 60px 0;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 2rem;
 }
 
 .login {
@@ -281,4 +317,24 @@ form label {
   flex-direction: column;
   gap: 20px;
   padding: 20px;
+}
+
+.loader {
+  margin-top: 20vh;
+  border: 10px solid var(--content-bg);
+  border-top: 10px solid var(--daze-blue);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+  align-self: center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  } 
+  100% {
+    transform: rotate(360deg);
+  }
 }
