@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 const NewPost = (props) => {
   const bearerToken = JSON.parse(window.localStorage.getItem('blogBearerToken'));
@@ -79,7 +79,12 @@ const NewPost = (props) => {
             placeholder="Enter post here"
           >
           </textarea>
-          <button type="submit">Publish</button>
+          <div className="submit-buttons">
+            <button type="submit">Publish</button>
+            <Link to={`/`}>
+              <button id="danger">Cancel</button>
+            </Link>
+          </div>
         </form>
       </div>
     </div>

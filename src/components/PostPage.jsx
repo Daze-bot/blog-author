@@ -29,7 +29,8 @@ const PostPage = () => {
   return (
     <div className="post-page">
       <h1>{activePost.title}</h1>
-      <p className="post-date">Created: {moment(activePost.dateAdded).format('MMM D, YYYY')}</p>
+      <p className="post-date">Created: {moment(activePost.createdAt).format('MMM D, YYYY')}</p>
+      <p className="post-date">Updated: {moment(activePost.updatedAt).format('MMM D, YYYY')}</p>
       <div className="post-admin">
         <Link to={`/posts/${postID}/edit`}><button>Edit Post</button></Link>
         <button id="danger">Delete Post</button>
