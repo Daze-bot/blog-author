@@ -112,8 +112,14 @@ nav button {
   color: white;
 }
 
+#black-btn {
+  background-color: #181a1b;
+  color: white;
+}
+
 nav button,
-form button {
+form button,
+.delete-confirmation button {
   border: none;
   background-color: var(--daze-blue);
   color: white;
@@ -127,7 +133,8 @@ nav button:hover,
 form button:hover,
 .post-admin button:hover,
 .admin-buttons button:hover,
-.home-buttons button:hover {
+.home-buttons button:hover,
+.delete-confirmation button:hover {
   cursor: pointer;
   filter: brightness(120%);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
@@ -137,7 +144,8 @@ nav button:active,
 form button:active,
 .post-admin button:active,
 .admin-buttons button:active,
-.home-buttons button:active {
+.home-buttons button:active,
+.delete-confirmation button:active {
   box-shadow: none;
 }
 
@@ -145,7 +153,8 @@ form button:active,
 .posts,
 .post-page,
 .new-post,
-.login {
+.login,
+.delete-confirmation {
   padding: 127px 64px 32px;
   background-color: var(--content-bg);
   color: black;
@@ -292,15 +301,44 @@ form button:active,
   border-radius: 8px;
 }
 
-.new-post h3 {
+.new-post h3,
+.delete-confirmation h3 {
   text-align: center;
   font-size: 1.5rem;
   margin-bottom: 40px;
 }
 
-.new-post button {
+.new-post button,
+.delete-confirmation button {
   margin-top: 20px;
   width: 180px;
+}
+
+.delete-confirmation {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.content-info {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  padding: 20px;
+  gap: 40px;
+  text-align: center;
+}
+
+.delete-confirmation h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: rgb(138, 10, 10)
+}
+
+.delete-confirmation h4 {
+  text-decoration: underline;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
 }
 
 .submit-buttons {

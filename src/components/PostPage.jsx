@@ -33,7 +33,7 @@ const PostPage = () => {
       <p className="post-date">Updated: {moment(activePost.updatedAt).format('MMM D, YYYY')}</p>
       <div className="post-admin">
         <Link to={`/posts/${postID}/edit`}><button>Edit Post</button></Link>
-        <button id="danger">Delete Post</button>
+        <Link to={`/posts/${postID}/delete`}><button id="danger">Delete Post</button></Link>
       </div>
       <p>{activePost.text}</p>
       <div className="post-comments">
