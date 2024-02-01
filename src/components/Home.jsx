@@ -11,8 +11,8 @@ const Home = () => {
 
   useEffect(() => {
     Promise.all([
-      fetch(`http://localhost:3000/posts`),
-      fetch(`http://localhost:3000/users`, {
+      fetch(`https://daze-blog-api.fly.dev/posts`),
+      fetch(`https://daze-blog-api.fly.dev/users`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': bearerAuth,

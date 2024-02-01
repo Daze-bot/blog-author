@@ -19,7 +19,7 @@ const EditComment = (props) => {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:3000/posts/${postID}/comments/${commentID}`)
+    fetch(`https://daze-blog-api.fly.dev/posts/${postID}/comments/${commentID}`)
       .then((res) => {
         return res.json();
       })
@@ -33,7 +33,7 @@ const EditComment = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`http://localhost:3000/posts/${postID}/comments/${commentID}`, {
+    fetch(`https://daze-blog-api.fly.dev/posts/${postID}/comments/${commentID}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

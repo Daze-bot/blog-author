@@ -7,7 +7,7 @@ const PostSample = ({post}) => {
   const [numComments, setNumComments] = useState(0);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/posts/${post._id}/comments`)
+    fetch(`https://daze-blog-api.fly.dev/posts/${post._id}/comments`)
       .then((res) => {
         return res.json();
       })

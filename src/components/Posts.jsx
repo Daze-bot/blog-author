@@ -6,7 +6,7 @@ const Posts = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3000/posts', {
+    fetch('https://daze-blog-api.fly.dev/posts', {
       mode:'cors'
     })
       .then((res) => {

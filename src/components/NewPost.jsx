@@ -14,7 +14,7 @@ const NewPost = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`http://localhost:3000/posts`, {
+    fetch(`https://daze-blog-api.fly.dev/posts`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -17,7 +17,7 @@ const EditPost = (props) => {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:3000/posts/${postID}`)
+    fetch(`https://daze-blog-api.fly.dev/posts/${postID}`)
       .then((res) => {
         return res.json();
       })
@@ -31,7 +31,7 @@ const EditPost = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`http://localhost:3000/posts/${postID}`, {
+    fetch(`https://daze-blog-api.fly.dev/posts/${postID}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

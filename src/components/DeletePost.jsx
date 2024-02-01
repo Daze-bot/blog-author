@@ -13,7 +13,7 @@ const DeletePost = (props) => {
   const [activePost, setActivePost] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:3000/posts/${postID}`)
+    fetch(`https://daze-blog-api.fly.dev/posts/${postID}`)
       .then((res) => {
         return res.json();
       })
@@ -24,7 +24,7 @@ const DeletePost = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`http://localhost:3000/posts/${postID}`, {
+    fetch(`https://daze-blog-api.fly.dev/posts/${postID}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

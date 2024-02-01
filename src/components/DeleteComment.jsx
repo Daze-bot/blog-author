@@ -14,7 +14,7 @@ const DeleteComment = (props) => {
   const [activeComment, setActiveComment] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:3000/posts/${postID}/comments/${commentID}`)
+    fetch(`https://daze-blog-api.fly.dev/posts/${postID}/comments/${commentID}`)
       .then((res) => {
         return res.json();
       })
@@ -25,7 +25,7 @@ const DeleteComment = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`http://localhost:3000/posts/${postID}/comments/${commentID}`, {
+    fetch(`https://daze-blog-api.fly.dev/posts/${postID}/comments/${commentID}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

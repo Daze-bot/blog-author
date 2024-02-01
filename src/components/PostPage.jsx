@@ -13,8 +13,8 @@ const PostPage = () => {
 
   useEffect(() => {
     Promise.all([
-      fetch(`http://localhost:3000/posts/${postID}`),
-      fetch(`http://localhost:3000/posts/${postID}/comments`)
+      fetch(`https://daze-blog-api.fly.dev/posts/${postID}`),
+      fetch(`https://daze-blog-api.fly.dev/posts/${postID}/comments`)
     ])
     .then(([res1, res2]) => {
       return Promise.all([res1.json(), res2.json()])

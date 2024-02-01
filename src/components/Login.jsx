@@ -8,7 +8,7 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:3000/users/login`, {
+    fetch(`https://daze-blog-api.fly.dev/users/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
