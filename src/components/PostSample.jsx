@@ -3,7 +3,7 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 
 const PostSample = ({post}) => {
-  const formattedDate = moment(post.updatedAt).format('MMM D, YYYY');
+  const formattedDate = moment(post.createdAt).format('MMM D, YYYY');
   const [numComments, setNumComments] = useState(0);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const PostSample = ({post}) => {
       <Link to={`/posts/${post._id}`}>
         <div className="post-sample">
           <h3>{post.title}</h3>      
-          <p>Updated: {formattedDate}</p>
+          <p>Created: {formattedDate}</p>
           <p>Comments ({numComments})</p>
         </div>
       </Link>

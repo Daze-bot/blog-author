@@ -1,43 +1,45 @@
 import { useEffect, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 
-const EditPost = (props) => {
+const EditComment = (props) => {
   const bearerToken = JSON.parse(window.localStorage.getItem('blogBearerToken'));
   const bearerAuth = `Bearer ${bearerToken}`;
 
   const params = useParams();
   const postID = params.postID;
+  const commentID = params.commentID;
 
   const [submitted, setSubmitted] = useState(false);
 
-  const [postData, setPostData] = useState({
-    postTitle: "",
-    postText: "",
+  const [commentData, setCommentData] = useState({
+    commentName: "",
+    commentText: "",
     postID: postID,
+    commentID: commentID
   });
 
   useEffect(() => {
-    fetch(`http://localhost:3000/posts/${postID}`)
+    fetch(`http://localhost:3000/posts/${postID}/comments/${commentID}`)
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        const newData = {...postData};
-        newData.postTitle = data.data.title;
-        newData.postText = data.data.text;
-        setPostData(newData);
+        const newData = {...commentData};
+        newData.commentName = data.data.name;
+        newData.commentText = data.data.text;
+        setCommentData(newData);
       });
   }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`http://localhost:3000/posts/${postID}`, {
+    fetch(`http://localhost:3000/posts/${postID}/comments/${commentID}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': bearerAuth,
       },
-      body: JSON.stringify(postData)
+      body: JSON.stringify(commentData)
     })
       .then((res) => {
         if (res.status === 401) {
@@ -57,13 +59,13 @@ const EditPost = (props) => {
   };
 
   const handleChange = (event) => {
-    const newData = {...postData}
-    if (event.target.name === "postTitle") {
-      newData.postTitle = event.target.value;
-      setPostData(newData);
-    } else if (event.target.name === "postText") {
-      newData.postText = event.target.value;
-      setPostData(newData);
+    const newData = {...commentData}
+    if (event.target.name === "commentName") {
+      newData.commentName = event.target.value;
+      setCommentData(newData);
+    } else if (event.target.name === "commentText") {
+      newData.commentText = event.target.value;
+      setCommentData(newData);
     }
   }
 
@@ -73,25 +75,26 @@ const EditPost = (props) => {
         <Navigate to={`/posts/${postID}`}/>
       }
       <div className="new-post">
-        <h3>Edit Post</h3>
+        <h3>Edit Comment</h3>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="postTitle">Title</label>
+          <label htmlFor="commentName">Name</label>
           <input
             required
-            name="postTitle"
-            id="postTitle"
+            name="commentName"
+            id="commentName"
             type="text"
-            value={postData.postTitle}
+            value={commentData.commentName}
             onChange={handleChange}
-            maxLength="60"
+            maxLength="25"
           ></input>
-          <label htmlFor="postText">Post Body</label>
+          <label htmlFor="commentText">Comment</label>
           <textarea
             required
-            name="postText"
-            id="postText"
-            rows="20"
-            value={postData.postText}
+            name="commentText"
+            id="commentText"
+            rows="8"
+            maxLength="1400"
+            value={commentData.commentText}
             onChange={handleChange}
           >
           </textarea>
@@ -107,4 +110,4 @@ const EditPost = (props) => {
   )
 }
 
-export default EditPost;
+export default EditComment;
