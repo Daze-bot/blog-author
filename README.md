@@ -1,6 +1,6 @@
-# Daze's Blog
+# Daze's Blog - Author Site
 
-Consumer facing blog website
+Website for the author of the blog to manage content
 
 <div align="center">
   <kbd>
@@ -10,9 +10,9 @@ Consumer facing blog website
 
 ## Description
 
-This consumer facing blog was built as part of a MERN stack application, serving as the front-end where users can view and comment on blog posts.  This React app makes API calls to the <a href="https://github.com/Daze-bot/blog-api">back-end</a> in order to read data and create comments
+This blog author facing site was built as part of a MERN stack application, serving as the front-end where the blog creator can manage all content that the users can see and interact with.  This React app makes API calls to the <a href="https://github.com/Daze-bot/blog-api">back-end</a> in order to read data, create posts, update posts and comments, and delete posts and comments
 
-### <a href="https://daze-blog-view.netlify.app/" target="_blank">View Live</a>
+### <a href="https://daze-blog-author.netlify.app/" target="_blank">View Live</a>
 
 ### Features
 
